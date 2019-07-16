@@ -1,0 +1,19 @@
+{
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "gcc-8 build active file",
+            "command": "/bin/gcc-8",
+            "args": [
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}"
+            ],
+            "options": {
+                "cwd": "/bin"
+            }
+        }
+    ],
+    "version": "2.0.0"
+}

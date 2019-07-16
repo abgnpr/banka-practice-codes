@@ -1,0 +1,16 @@
+{
+  "name": "ch9",
+  "version": "1.0.0",
+  "description": "Practice problems",
+  "main": "index.js",
+  "dependencies": {
+    "eslint": "^6.0.1",
+    "readline-sync": "^1.4.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "mountAP",
+  "license": "ISC"
+}

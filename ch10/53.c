@@ -6,24 +6,22 @@
  * vowels. */
 int main(void) {
 
-    int totalWords, i, j, firstFound, wIsOf_reqKind;
-    char s[MAXLEN], words[MAXLEN][MAXWORDLEN], prev_ch;
+    int totalWords, i, j, nV;
+    char s[MAXLEN], words[MAXLEN][MAXWORDLEN], 
+         prev_v, ch;
 
     fgets(s, MAXLEN, stdin);
     totalWords = obtainWordsFrom(s, words);
 
     for (i = 0; i < totalWords; ++i) {
-        firstFound = FALSE;
-        wIsOf_reqKind = FALSE;
-        for (j = 0; j < strlen(words[i]); ++j) {
-            if (isVowel(words[i][j]) && !wIsOf_reqKind) {
-                if (prev_ch != words[i][j] && firstFound) {
-                    wIsOf_reqKind = TRUE;
-                } else {
-                    prev_ch = words[i][j];
-                }
-            }
-            wIsOf_reqKind? printf("%s\n", words[i]) : printf("");
-        }
-    }
+        for (j = nV = 0; j < strlen(words[i]); ++j) {
+            if (isVowel(ch = words[i][j])) {
+                if (++nV > 1 && ch != prev_v) {
+                    printf("%s\n", words[i]);
+                    break;
+                } else prev_v = ch;
+            } // fi
+        } // for j
+    } // for i
+
 }

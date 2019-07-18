@@ -50,13 +50,7 @@ int obtainWordsFrom(char *_Str, char _words[][MAXWORDLEN])
     int i = 0, j = 0, _wN = 0;
     char ch, _word[MAXWORDLEN];
 
-    int _StrLen = strlen(_Str);
-    if (_Str[_StrLen - 1] != '\n') {
-        _Str[_StrLen] = '\n';
-        _Str[_StrLen + 1] = '\0';
-    }
-
-    while ((ch = _Str[i++]) != '\0')
+    while ((ch = _Str[i++]) != '\n' && ch != '\0')
     {
         if ((ch >= 'A' && ch <= 'Z')
         ||  (ch >= 'a' && ch <= 'z')
@@ -73,4 +67,60 @@ int obtainWordsFrom(char *_Str, char _words[][MAXWORDLEN])
 
     return _wN;
 
+}
+
+/** 
+ * getHeatMap : 
+ */
+int getHeatMap(
+        char *_Str, char *_searchChars_,
+        int _caseSensitive_, int _chAndOccu_[][2]
+        ) {
+
+    int i, j, _nMatches_ = 0, updated;
+    char _ch_, _sc_;
+    
+    for (i = 0; i < strlen(_searchChars_); ++i) {
+
+        _chAndOccu_[_nMatches_][1] = 0;
+        updated = FALSE; j = 0;
+
+        _sc_ = _searchChars_[i];
+        if (!_caseSensitive_ && _sc_ >= 'a' && _sc_ <= 'z')
+            _sc_ -= ('a'-'A');
+
+        while ((_ch_ = _Str[j++]) != '\n' && _ch_ != '\0') {
+            
+            if (!_caseSensitive_ && _ch_ >= 'a' && _ch_ <= 'z')
+                _ch_ -= ('a'-'A');
+
+            if (_ch_ == _sc_) {
+                if (!updated) { ++_nMatches_; updated = TRUE; }
+                if (_chAndOccu_[_nMatches_-1][1] == 0)
+                    _chAndOccu_[_nMatches_-1][0] = _searchChars_[i];
+                _chAndOccu_[_nMatches_-1][1] += 1;
+            }
+
+        } // end while
+
+    } // end for i
+
+    return _nMatches_;
+
+}
+
+/* Reverses the given string */
+char *strrev(char *str)
+{
+      char *p1, *p2;
+
+      if (! str || ! *str)
+            return str;
+      for (p1 = str, p2 = str + strlen(str) - 1; p2 > p1; ++p1, --p2)
+      {
+            *p1 ^= *p2;
+            *p2 ^= *p1;
+            *p1 ^= *p2;
+      }
+      return str;
 }

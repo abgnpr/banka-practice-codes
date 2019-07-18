@@ -8,7 +8,7 @@ int main(void) {
 
     int totalWords, i, j, nV;
     char s[MAXLEN], words[MAXLEN][MAXWORDLEN], 
-         prev_v, ch;
+        prev_v, ch;
 
     fgets(s, MAXLEN, stdin);
     totalWords = obtainWordsFrom(s, words);

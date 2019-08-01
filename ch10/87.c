@@ -4,8 +4,8 @@
 #include <stdlib.h>
 
 #define MAXLEN 100
-#define DIGIT  1
-#define ALPHA  2
+#define ALPHA  1
+#define DIGIT  2
 
 /* Input a string like  "A2B3C7K2"  and 
  * print "AABBBCCCCCCCKK" as the output.
@@ -45,6 +45,5 @@ int main() {
     }
 
     putchar('\n');
-    
     return 0;
 }

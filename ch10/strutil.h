@@ -1,5 +1,6 @@
-#include <string.h>
 #include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
 
 #define MAXLEN 100
 #define MAXWORDLEN 50
@@ -124,3 +125,28 @@ char *strrev(char *str)
       }
       return str;
 }
+
+void strupr(char *str) {
+    int c = 0;
+    while (str[c]!='\n' && str[c]!='\0') {
+        if (isalpha(str[c]))
+            str[c] = toupper(str[c]);
+        c += 1;
+    }
+}
+
+void strlwr(char *str) {
+    int c = 0;
+    while (str[c]!='\n' && str[c]!='\0') {
+        if (isalpha(str[c]))
+            str[c] = tolower(str[c]);
+        c += 1;
+    }
+}
+
+// size_t strlen(const char* str) {
+//     size_t l = 0;
+//     for (/* l */; *(str+l) != '\0'; ++l)
+//         ;
+//     return l;
+// }

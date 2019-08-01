@@ -67,7 +67,6 @@ int obtainWordsFrom(char *_Str, char _words[][MAXWORDLEN])
     }
 
     return _wN;
-
 }
 
 /** 
@@ -101,9 +100,9 @@ int getHeatMap(
                     _chAndOccu_[_nMatches_-1][0] = _searchChars_[i];
                 _chAndOccu_[_nMatches_-1][1] += 1;
             }
-
+        
         } // end while
-
+    
     } // end for i
 
     return _nMatches_;
@@ -126,6 +125,7 @@ char *strrev(char *str)
       return str;
 }
 
+/* convert str to upper case */
 void strupr(char *str) {
     int c = 0;
     while (str[c]!='\n' && str[c]!='\0') {
@@ -135,6 +135,7 @@ void strupr(char *str) {
     }
 }
 
+/* convert str to lower case */
 void strlwr(char *str) {
     int c = 0;
     while (str[c]!='\n' && str[c]!='\0') {

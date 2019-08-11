@@ -27,21 +27,21 @@
 
 /* a recursive solution */
 
-// void printLine_FromTo(char *start, char *end) {
-//     if (start < end)
-//         printLine_FromTo(start, end - 1);
-//     putchar(*end);
-//     putchar(' ');
-// }
+void printLine_FromTo(char *start, char *end) {
+    if (start < end)
+        printLine_FromTo(start, end - 1);
+    putchar(*end);
+    putchar(' ');
+}
 
-// void print_FromTo(char *start, char *end) {
-//     if (start < end)
-//         print_FromTo(start, end - 1);
-//     printLine_FromTo(start, end);
-//     putchar('\n');
-// }
+void print_FromTo(char *start, char *end) {
+    if (start < end)
+        print_FromTo(start, end - 1);
+    printLine_FromTo(start, end);
+    putchar('\n');
+}
 
-// void main(void) {
-//     char  patStr[] = "MANHATTAN"; // Put anything here
-//     print_FromTo(patStr, patStr+strlen(patStr)-1);
-// }
+void main(void) {
+    char  patStr[] = "MANHATTAN"; // Put anything here
+    print_FromTo(patStr, patStr+strlen(patStr)-1);
+}

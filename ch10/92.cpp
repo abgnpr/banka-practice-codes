@@ -15,7 +15,7 @@ int main(void)
   if (isspace(s[0]))
     isExtraSpace = true;
 
-  for (char ch : s)
+  for (const char &ch : s)
     if (isspace(ch))
     {
       if (isExtraSpace)
@@ -29,7 +29,8 @@ int main(void)
             break;
 
         if (k < word.length())
-          new_S += word.substr(k) + word.substr(0, k) + "ay" + ch;
+          new_S += word.substr(k) 
+          + word.substr(0, k) + "ay" + ch;
         else
           new_S += word + ch;
 

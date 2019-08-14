@@ -1,0 +1,1 @@
+// see project - baseconverter (function toDec() in numsysconv.h)
